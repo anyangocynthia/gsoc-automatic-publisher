@@ -22,9 +22,9 @@ def self.get_readmes
 			File.open(md, "r") do |fileb|
 				fileb.readlines.each do |line|
 				filea.puts line
-			# while line = fileb.gets	
-			# 	filea.puts line 
-			# end 
+				# while line = fileb.gets	
+				# 	filea.puts line 
+				# end 
 			end
 		end
 	end 
