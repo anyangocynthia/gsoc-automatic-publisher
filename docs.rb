@@ -1,6 +1,6 @@
-# class  docs
-
+#!/usr/bin/env ruby
 # gets all folders
+
 def self.get_folders
  Dir.entries('.').select {|entry| File.directory? File.join('.',entry ) and !(entry =='.' || entry == '..') }
 end
@@ -15,16 +15,21 @@ def self.get_readmes
 	get_folders = plugins
 	# readmes = []
 	get_folders.each do |folder|
-		puts './' + folder + '\n============='
 		Dir.glob('./' + folder + '/*.md') do |md|
 			puts md
 			puts %(md\n=============)
-			f = File.open(md, "r")
-			f.each_line do |line|
-				puts line
+			File.open("docs.md", "w") do |filea| 
+			File.open(md, "r") do |fileb|
+				fileb.readlines.each do |line|
+				filea.puts line
+			# while line = fileb.gets	
+			# 	filea.puts line 
+			# end 
 			end
-			puts '============='
 		end
-	end
+	end 
+	end 
+			puts '============='
 end
-# end
+
+end
