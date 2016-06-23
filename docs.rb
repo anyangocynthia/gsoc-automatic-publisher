@@ -12,8 +12,8 @@ def self.plugins
   get_folders.select {|entry| entry.match(/plugin/)}
 end
 
-# gets readme files in the folders
-def self.get
+# gets documentation files in the folders
+def self.get_docs
 	c = File.open("index.adoc", "w")
 	get_folders = plugins
 	get_folders.each do |folder|
