@@ -17,11 +17,10 @@ def get_docs
 	c = File.open("index.adoc", "w")
 	get_folders = plugins
 	get_folders.each do |folder|
-		# Dir.glob.select('./' + folder + '/*plugin') do |adoc|
-		Dir.glob('./' + folder + '/*.adoc' || './' + folder + '/*.md' ) do |adoc|
-			puts adoc
-			puts %(adoc\n=============)
-			f = File.open(adoc, "r") 
+		Dir.glob('./' + folder + "/{*md,*adoc}" ) do |docs|
+			puts docs
+			puts %(docs\n=============)
+			f = File.open(docs, "r") 
 				f.each_line do |line|
 					c.write line						
 					end
