@@ -4,7 +4,7 @@ require 'asciidoctor'
 
 # gets all folders
 def get_folders
- Dir.entries(".").select {|entry| File.directory? File.join(".",entry ) and !(entry =="." || entry == "..") }
+ Dir.entries("..").select {|entry| File.directory? File.join("..",entry ) and !(entry =="." || entry == "..") }
 end
 
 # selects folders with plugins
